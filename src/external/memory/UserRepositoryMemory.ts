@@ -17,4 +17,12 @@ export default class UserRepositoryMemory implements IUserRepository {
 
     return newUser;
   }
+
+  async findAll(): Promise<IUser[]> {
+    return this.users;
+  }
+
+  async findById(id: number): Promise<IUser | null> {
+    return this.users.find((u) => u.id === id) ?? null;
+  }
 }
